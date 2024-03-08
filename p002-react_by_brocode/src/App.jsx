@@ -1,34 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import "bootstrap/dist/css/bootstrap.css";
+
+import Header from "./components/Header";
+import Food from "./components/Food";
+import Footer from "./components/Footer";
+import Card from "./components/Card";
+import Button from "./components/Button";
+import Student from "./components/Student";
+import UserGreeting from "./components/UserGreeting";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <Header />
+      <Food></Food>
+      <Footer />
+
+      <br />
+      <hr />
+      <br />
+
+      <Card />
+      <Card />
+
+      <br />
+      <hr />
+      <br />
+
+      {
+        //Component styles can be of 3 types
+        // External : global css files
+        // modules : separate css file for each component
+        // inline : within the component function, best used for small component with simple styling
+      }
+      <Button />
+
+      <br />
+      <hr />
+      <br />
+
+      <Student name="Narasimha" age={26} isStudent={false} />
+      <Student name="Prajwal" age={28} isStudent={true} />
+      <Student />
+
+      <br />
+      <hr />
+      <br />
+
+      <UserGreeting isLoggedIn={false} username="Narasimha" />
+      <UserGreeting isLoggedIn={true} username="Narasimha" />
+    </>
+  );
 }
 
-export default App
+export default App;
